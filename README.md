@@ -1,4 +1,4 @@
-# VIAP
+# PbVIAP
 <img src="VIAP_logo.jpg" width=400 alt="Viap Logo" align="right">
 
 Probalistic Program Verifier Integer Assignment Program(PbVIAP) translates a program to first-order logic with
@@ -10,11 +10,6 @@ Many more to come..
 
 ## Publications
 
-1. [A Formalization of Programs in First-Order Logic with a Discrete Linear Order](http://www.sciencedirect.com/science/article/pii/S000437021630011X?via%3Dihub),Fangzhen Lin,Artificial Intelligence(2016)
-
-1. [VIAP - automated system for verifying integer assignment programs with loops](https://github.com/VerifierIntegerAssignment/sv-comp/blob/master/viap-automated-system.pdf),Pritom Rajkhowa, Fangzhen Lin, 19th International Symposium on Symbolic and Numeric Algorithms for Scientific Computing,SYNASC 2017, Timisoara, Romania, September 21-24, 2017
-
-1. [VIAP-Automated System for Verifying Integer Assignment Programs with Loops(Competition Contribution)](https://github.com/VerifierIntegerAssignment/sv-comp-1/blob/master/viap-automated-system.pdf), Pritom Rajkhowa, Fangzhen Lin, 7th International Competition on Software Verification (2018)(not part of TACAS proceeding)
 
 
 # See below for system requirements, installation, usage, and everything else.
@@ -33,7 +28,7 @@ Many more to come..
 
 ### System Requirements and Installation
 
-In practice we have run VIAP on standard Ubuntu 18.04 LTS distribution. VIAP is provided as a set of binaries and libraries for
+In practice we have run PbVIAP on standard Ubuntu 18.04 LTS distribution. PbVIAP is provided as a set of binaries and libraries for
 Ubuntu 18.04 LTS distribution. 
 
 #### Download 
@@ -46,7 +41,7 @@ Ubuntu 18.04 LTS distribution.
  #### Running PbVIAP
 
 
-VIAP software verifier is run using the `viap_tool.py` tool in the viap directory.
+VIAP software verifier is run using the `pbviap_tool.py` tool in the viap directory.
 For a given input C program, the tool checks for violations of user-provided
 assertions. 
 
@@ -70,7 +65,7 @@ Next, we illustrate how to translate the following simple probalistic program us
 tool:
 
 ```C
-// benchmarks/multidimensional/transpose.c
+// benchmarks/binomial.i
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main( ) {
