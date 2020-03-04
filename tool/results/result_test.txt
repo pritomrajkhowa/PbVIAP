@@ -1,0 +1,90 @@
+Program Body
+{
+  int M;
+  double f;
+  f = 0;
+  double c;
+  c = 0;
+  double d;
+  d = 0;
+  while (c < M)
+  {
+    f = W_(1 / 2, 1, 0);
+    c = (1 - f) + (c * f);
+    d = (d + f) - (d * f);
+  }
+
+}
+
+Function Name:
+main
+Return Type:
+int
+Input Variables:
+{}
+Local Variables:
+{ c:double M:int d:double f:double}
+
+Output in normal notation:
+1. Frame axioms:
+M1 = M
+
+2. Output equations:
+c1 = c3(_N1)
+d1 = d3(_N1)
+f1 = W_((1/2),1,0)
+
+3. Other axioms:
+c3((_n1+1)) = ((1-W_((1/2),1,0))+(c3(_n1)*W_((1/2),1,0)))
+d3((_n1+1)) = ((d3(_n1)+W_((1/2),1,0))-(d3(_n1)*W_((1/2),1,0)))
+c3(0) = 0
+d3(0) = 0
+(0<=(-(M)+c3(_N1)))
+(_n1<_N1) -> (c3(_n1)<M)
+
+
+
+II. Expected Values :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[M1] = M
+
+2. Output equations:
+E[c1] = c3(_N1)
+E[d1] = d3(_N1)
+E[f1] = ((1/2))*(1)+(1-(1/2))*(0)
+
+3. Other axioms:
+E[c3((_n1+1))] = (E[(1-W_((1/2),1,0))] +E[E[(c3(_n1)*W_((1/2),1,0))]])
+E[d3((_n1+1))] = (E[(d3(_n1)+W_((1/2),1,0))] -E[E[(d3(_n1)*W_((1/2),1,0))]])
+E[c3(0)] = 0
+E[d3(0)] = 0
+(E[0] <=(E[-(M)] +E[c3(_N1)]))
+(_n1<_N1) -> (E[c3(_n1)] <E[M])
+
+
+
+III. Higher Moment :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[(M1)**_h] = E[(M)**_k]
+
+2. Output equations:
+E[(c1)**_h] = E[(c3(_N1))**_k]
+E[(d1)**_h] = E[(d3(_N1))**_k]
+E[(f1)**_h] = E[(((1/2))*(1)**_k+(1-(1/2))*(0)**_k)**_k]
+
+3. Other axioms:
+E[(c3((_n1+1)))**_h] = (E[((1-W_((1/2),1,0)) +(c3(_n1)*W_((1/2),1,0)))**k])
+E[(d3((_n1+1)))**_h] = (E[((d3(_n1)+W_((1/2),1,0)) -(d3(_n1)*W_((1/2),1,0)))**k])
+E[(c3(0))**_h] = E[(0)**_k]
+E[(d3(0))**_h] = E[(0)**_k]
+(E[(0)**_k] <=(E[(-(M) +c3(_N1))**k]))
+(_n1<_N1) -> (E[(c3(_n1) <M)**k])
+

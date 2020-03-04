@@ -1,0 +1,93 @@
+Program Body
+{
+  int M;
+  double g;
+  double u;
+  double y;
+  double x;
+  x = 0;
+  while (y < M)
+  {
+    u = uniform(0, b);
+    g = gauss(0, 1);
+    x = W_(1 / 2, x - u, x + u);
+    y = (y + x) + g;
+  }
+
+}
+
+Function Name:
+main
+Return Type:
+int
+Input Variables:
+{}
+Local Variables:
+{ y:double u:double M:int g:double x:double}
+
+Output in normal notation:
+1. Frame axioms:
+M1 = M
+
+2. Output equations:
+y1 = y4(_N1)
+x1 = x4(_N1)
+u1 = RV(uniform,0,b)
+g1 = RV(gauss,0,1)
+
+3. Other axioms:
+y4((_n1+1)) = ((y4(_n1)+W_((1/2),(x4(_n1)-RV(uniform,0,b)),(x4(_n1)+RV(uniform,0,b))))+RV(gauss,0,1))
+x4((_n1+1)) = W_((1/2),(x4(_n1)-RV(uniform,0,b)),(x4(_n1)+RV(uniform,0,b)))
+y4(0) = y
+x4(0) = 0
+(0<=(-(M)+y4(_N1)))
+(_n1<_N1) -> (y4(_n1)<M)
+
+
+
+II. Expected Values :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[M1] = M
+
+2. Output equations:
+E[y1] = y4(_N1)
+E[x1] = x4(_N1)
+E[u1] = RV(uniform,0,b)
+E[g1] = RV(gauss,0,1)
+
+3. Other axioms:
+E[y4((_n1+1))] = (E[(y4(_n1)+W_((1/2),(x4(_n1)-RV(uniform,0,b)),(x4(_n1)+RV(uniform,0,b))))] +E[RV(gauss,0,1)])
+E[x4((_n1+1))] = ((1/2))*((E[x4(_n1)] -E[RV(uniform,0,b)]))+(1-(1/2))*(E[(x4(_n1)+RV(uniform,0,b))])
+E[y4(0)] = y
+E[x4(0)] = 0
+(E[0] <=(E[-(M)] +E[y4(_N1)]))
+(_n1<_N1) -> (E[y4(_n1)] <E[M])
+
+
+
+III. Higher Moment :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[(M1)**_h] = E[(M)**_k]
+
+2. Output equations:
+E[(y1)**_h] = E[(y4(_N1))**_k]
+E[(x1)**_h] = E[(x4(_N1))**_k]
+E[(u1)**_h] = E[(RV(uniform,0,b))**_k]
+E[(g1)**_h] = E[(RV(gauss,0,1))**_k]
+
+3. Other axioms:
+E[(y4((_n1+1)))**_h] = (E[((y4(_n1)+W_((1/2),(x4(_n1)-RV(uniform,0,b)),(x4(_n1)+RV(uniform,0,b)))) +RV(gauss,0,1))**k])
+E[(x4((_n1+1)))**_h] = E[(((1/2))*((E[(x4(_n1) -RV(uniform,0,b))**k]))**_k+(1-(1/2))*(E[(x4(_n1)+RV(uniform,0,b))])**_k)**_k]
+E[(y4(0))**_h] = E[(y)**_k]
+E[(x4(0))**_h] = E[(0)**_k]
+(E[(0)**_k] <=(E[(-(M) +y4(_N1))**k]))
+(_n1<_N1) -> (E[(y4(_n1) <M)**k])
+

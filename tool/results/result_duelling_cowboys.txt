@@ -1,0 +1,76 @@
+Program Body
+{
+  int M;
+  double ahit;
+  ahit = 0;
+  double bhit;
+  bhit = 0;
+  while (ahit < M)
+  {
+    ahit = W_(a, 1, 0);
+    bhit = W_(b, (-a) + 1, 0);
+    y = (-ahit) - bhit;
+  }
+
+}
+
+Function Name:
+main
+Return Type:
+int
+Input Variables:
+{}
+Local Variables:
+{ ahit:double bhit:double M:int}
+
+Output in normal notation:
+1. Frame axioms:
+M1 = M
+
+2. Output equations:
+ahit1 = W_(a,1,0)
+bhit1 = W_(b,(-(a)+1),0)
+
+3. Other axioms:
+(W_(a,1,0)>=M)
+(_n1<_N1) -> (W_(a,1,0)<M)
+
+
+
+II. Expected Values :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+['e', ['M1'], ['M']]
+E[M1] = M
+
+2. Output equations:
+['e', ['ahit1'], ['W_', ['a'], ['1'], ['0']]]
+E[ahit1] = (a)*(1)+(1-a)*(0)
+['e', ['bhit1'], ['W_', ['b'], ['+', ['-', ['a']], ['1']], ['0']]]
+E[bhit1] = (b)*((E[-(a)] +E[1]))+(1-b)*(E[0])
+
+3. Other axioms:
+(E[W_(a,1,0)] >=E[M])
+(_n1<_N1) -> (E[W_(a,1,0)] <E[M])
+
+
+
+III. Higher Moment :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[(M1)**_h] = E[(M)**_k]
+
+2. Output equations:
+E[(ahit1)**_h] = E[((a)*(1)**_k+(1-a)*(0)**_k)**_k]
+E[(bhit1)**_h] = E[((b)*((E[(-(a) +1)**k]))**_k+(1-b)*(E[0])**_k)**_k]
+
+3. Other axioms:
+(E[(W_(a,1,0) >=M)**k])
+(_n1<_N1) -> (E[(W_(a,1,0) <M)**k])
+

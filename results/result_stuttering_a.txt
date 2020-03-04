@@ -1,0 +1,84 @@
+Program Body
+{
+  int M;
+  double y;
+  y = 1;
+  double x;
+  x = 0;
+  while (y < M)
+  {
+    x = W_(1 / 2, x + 2, x);
+    y = x * x;
+  }
+
+}
+
+Function Name:
+main
+Return Type:
+int
+Input Variables:
+{}
+Local Variables:
+{ y:double x:double M:int}
+
+Output in normal notation:
+1. Frame axioms:
+M1 = M
+
+2. Output equations:
+y1 = y2(_N1)
+x1 = x2(_N1)
+
+3. Other axioms:
+y2((_n1+1)) = (W_((1/2),(x2(_n1)+2),x2(_n1))*W_((1/2),(x2(_n1)+2),x2(_n1)))
+x2((_n1+1)) = W_((1/2),(x2(_n1)+2),x2(_n1))
+y2(0) = 1
+x2(0) = 0
+(0<=(-(M)+y2(_N1)))
+(_n1<_N1) -> (y2(_n1)<M)
+
+
+
+II. Expected Values :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[M1] = M
+
+2. Output equations:
+E[y1] = y2(_N1)
+E[x1] = x2(_N1)
+
+3. Other axioms:
+E[y2((_n1+1))] = E[(W_((1/2),(x2(_n1)+2),x2(_n1))*W_((1/2),(x2(_n1)+2),x2(_n1)))]
+E[x2((_n1+1))] = ((1/2))*((E[x2(_n1)] +E[2]))+(1-(1/2))*(E[x2(_n1)])
+E[y2(0)] = 1
+E[x2(0)] = 0
+(E[0] <=(E[-(M)] +E[y2(_N1)]))
+(_n1<_N1) -> (E[y2(_n1)] <E[M])
+
+
+
+III. Higher Moment :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[(M1)**_h] = E[(M)**_k]
+
+2. Output equations:
+E[(y1)**_h] = E[(y2(_N1))**_k]
+E[(x1)**_h] = E[(x2(_N1))**_k]
+
+3. Other axioms:
+E[(y2((_n1+1)))**_h] = (W_((1/2),(x2(_n1)+2),x2(_n1))*W_((1/2),(x2(_n1)+2),x2(_n1)))
+E[(x2((_n1+1)))**_h] = E[(((1/2))*((E[(x2(_n1) +2)**k]))**_k+(1-(1/2))*(E[x2(_n1)])**_k)**_k]
+E[(y2(0))**_h] = E[(1)**_k]
+E[(x2(0))**_h] = E[(0)**_k]
+(E[(0)**_k] <=(E[(-(M) +y2(_N1))**k]))
+(_n1<_N1) -> (E[(y2(_n1) <M)**k])
+

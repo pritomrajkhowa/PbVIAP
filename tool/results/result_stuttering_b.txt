@@ -1,0 +1,114 @@
+Program Body
+{
+  int M;
+  double v;
+  v = 0;
+  double w;
+  w = 0;
+  double x;
+  x = uniform(-9, 7);
+  double y;
+  y = uniform(-7, 9);
+  double s;
+  s = 0;
+  double f;
+  f = 0;
+  while (y < M)
+  {
+    v = uniform(-3, 5);
+    w = uniform(-6, 10);
+    f = W_(3 / 4, 1, 0);
+    x = x + (f * v);
+    y = y + (f * w);
+    s = x + y;
+  }
+
+}
+
+Function Name:
+main
+Return Type:
+int
+Input Variables:
+{}
+Local Variables:
+{ f:double M:int s:double w:double v:double y:double x:double}
+
+Output in normal notation:
+1. Frame axioms:
+M1 = M
+
+2. Output equations:
+f1 = W_((3/4),1,0)
+s1 = s6(_N1)
+w1 = RV(uniform,-(6),10)
+v1 = RV(uniform,-(3),5)
+y1 = y6(_N1)
+x1 = x6(_N1)
+
+3. Other axioms:
+s6((_n1+1)) = ((x6(_n1)+(W_((3/4),1,0)*RV(uniform,-(3),5)))+(y6(_n1)+(W_((3/4),1,0)*RV(uniform,-(6),10))))
+y6((_n1+1)) = (y6(_n1)+(W_((3/4),1,0)*RV(uniform,-(6),10)))
+x6((_n1+1)) = (x6(_n1)+(W_((3/4),1,0)*RV(uniform,-(3),5)))
+s6(0) = 0
+y6(0) = RV(uniform,-(7),9)
+x6(0) = RV(uniform,-(9),7)
+(0<=(-(M)+y6(_N1)))
+(_n1<_N1) -> (y6(_n1)<M)
+
+
+
+II. Expected Values :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[M1] = M
+
+2. Output equations:
+E[f1] = ((3/4))*(1)+(1-(3/4))*(0)
+E[s1] = s6(_N1)
+E[w1] = RV(uniform,-(6),10)
+E[v1] = RV(uniform,-(3),5)
+E[y1] = y6(_N1)
+E[x1] = x6(_N1)
+
+3. Other axioms:
+E[s6((_n1+1))] = (E[(x6(_n1)+(W_((3/4),1,0)*RV(uniform,-(3),5)))] +(E[y6(_n1)] +E[E[(W_((3/4),1,0)*RV(uniform,-(6),10))]]))
+E[y6((_n1+1))] = (E[y6(_n1)] +E[E[(W_((3/4),1,0)*RV(uniform,-(6),10))]])
+E[x6((_n1+1))] = (E[x6(_n1)] +E[E[(W_((3/4),1,0)*RV(uniform,-(3),5))]])
+E[s6(0)] = 0
+E[y6(0)] = RV(uniform,-(7),9)
+E[x6(0)] = RV(uniform,-(9),7)
+(E[0] <=(E[-(M)] +E[y6(_N1)]))
+(_n1<_N1) -> (E[y6(_n1)] <E[M])
+
+
+
+III. Higher Moment :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[(M1)**_h] = E[(M)**_k]
+
+2. Output equations:
+E[(f1)**_h] = E[(((3/4))*(1)**_k+(1-(3/4))*(0)**_k)**_k]
+E[(s1)**_h] = E[(s6(_N1))**_k]
+E[(w1)**_h] = E[(RV(uniform,-(6),10))**_k]
+E[(v1)**_h] = E[(RV(uniform,-(3),5))**_k]
+E[(y1)**_h] = E[(y6(_N1))**_k]
+E[(x1)**_h] = E[(x6(_N1))**_k]
+
+3. Other axioms:
+E[(s6((_n1+1)))**_h] = (E[((x6(_n1)+(W_((3/4),1,0)*RV(uniform,-(3),5))))**_k] +(E[(y6(_n1) +(W_((3/4),1,0)*RV(uniform,-(6),10)))**k]))
+E[(y6((_n1+1)))**_h] = (E[(y6(_n1) +(W_((3/4),1,0)*RV(uniform,-(6),10)))**k])
+E[(x6((_n1+1)))**_h] = (E[(x6(_n1) +(W_((3/4),1,0)*RV(uniform,-(3),5)))**k])
+E[(s6(0))**_h] = E[(0)**_k]
+E[(y6(0))**_h] = E[(RV(uniform,-(7),9))**_k]
+E[(x6(0))**_h] = E[(RV(uniform,-(9),7))**_k]
+(E[(0)**_k] <=(E[(-(M) +y6(_N1))**k]))
+(_n1<_N1) -> (E[(y6(_n1) <M)**k])
+

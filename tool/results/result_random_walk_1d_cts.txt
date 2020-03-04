@@ -1,0 +1,78 @@
+Program Body
+{
+  int M;
+  double v;
+  v = 0;
+  double x;
+  x = 0;
+  while (x < M)
+  {
+    v = uniform(0, 1);
+    x = W_(7 / 10, x + v, x - v);
+  }
+
+}
+
+Function Name:
+main
+Return Type:
+int
+Input Variables:
+{}
+Local Variables:
+{ x:double M:int v:double}
+
+Output in normal notation:
+1. Frame axioms:
+M1 = M
+
+2. Output equations:
+x1 = x2(_N1)
+v1 = RV(uniform,0,1)
+
+3. Other axioms:
+x2((_n1+1)) = W_((7/10),(x2(_n1)+RV(uniform,0,1)),(x2(_n1)-RV(uniform,0,1)))
+x2(0) = 0
+(0<=(-(M)+x2(_N1)))
+(_n1<_N1) -> (x2(_n1)<M)
+
+
+
+II. Expected Values :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[M1] = M
+
+2. Output equations:
+E[x1] = x2(_N1)
+E[v1] = RV(uniform,0,1)
+
+3. Other axioms:
+E[x2((_n1+1))] = ((7/10))*((E[x2(_n1)] +E[RV(uniform,0,1)]))+(1-(7/10))*(E[(x2(_n1)-RV(uniform,0,1))])
+E[x2(0)] = 0
+(E[0] <=(E[-(M)] +E[x2(_N1)]))
+(_n1<_N1) -> (E[x2(_n1)] <E[M])
+
+
+
+III. Higher Moment :
+
+
+
+Output in normal notation:
+1. Frame axioms:
+E[(M1)**_h] = E[(M)**_k]
+
+2. Output equations:
+E[(x1)**_h] = E[(x2(_N1))**_k]
+E[(v1)**_h] = E[(RV(uniform,0,1))**_k]
+
+3. Other axioms:
+E[(x2((_n1+1)))**_h] = E[(((7/10))*((E[(x2(_n1) +RV(uniform,0,1))**k]))**_k+(1-(7/10))*(E[(x2(_n1)-RV(uniform,0,1))])**_k)**_k]
+E[(x2(0))**_h] = E[(0)**_k]
+(E[(0)**_k] <=(E[(-(M) +x2(_N1))**k]))
+(_n1<_N1) -> (E[(x2(_n1) <M)**k])
+
