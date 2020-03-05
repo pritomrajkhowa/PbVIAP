@@ -1,5 +1,5 @@
 # PbVIAP
-<img src="VIAP_logo.jpg" width=400 alt="Viap Logo" align="right">
+<img src="PbVIAP_logo.png" width=400 alt="Viap Logo" align="right">
 
 Probalistic Program Verifier Integer Assignment Program(PbVIAP) translates a program to first-order logic with
 quantifiers on natural numbers. 
